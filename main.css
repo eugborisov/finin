@@ -83,8 +83,12 @@
   margin-bottom: 6px!important;
 }
 
-.carousel-button.active {
+.carousel-button:first-child.active {
   background-color: #ff8a89!important;
+}
+
+.carousel-button.active {
+  background-color: #8e95ff!important;
 }
 
 .social-buttons {
