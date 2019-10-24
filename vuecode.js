@@ -72,7 +72,7 @@ new Vue({
         paragraph1: 'We get it. Saving money is easier<br>said than done. With Finin’s STASH,<br>savings are painless and enjoyable.<br>Time to steer away from your fears,<br>be it recessions or health emergencies.',
         paragraph2: 'Be financially <span>Independent.</span>',
         imglink1: 'img/Group 1547@3x.png',
-        imglink2: 'img/Group 1534@3x.png'
+        imglink2: 'img/Group 1500@3x.png'
       },
       {
         id: 6,

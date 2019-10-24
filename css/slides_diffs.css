@@ -1,0 +1,225 @@
+  /* Colours block*/
+
+/* slider dots */
+.active.carousel-button:nth-child(3n+1) {
+  background-color: #ff8a89!important;
+}
+
+.active.carousel-button:nth-child(3n+2) {
+  background-color: #8e95ff!important;
+}
+
+.active.carousel-button:nth-child(3n+3) {
+  background-color: #47c690!important;
+}
+
+/*thick under header line */
+.carousel-item.first .line, .carousel-item.fourth .line {
+    background-color: #ff8a89;
+}
+
+.carousel-item.second .line, .carousel-item.fifth .line {
+    background-color: #8e95ff;
+}
+
+.carousel-item.third .line, .carousel-item.sixth .line {
+    background-color: #47c690;
+}
+
+/* colored text */
+.carousel-item.first .container-inner_paragraph2 span, .carousel-item.fourth .container-inner_paragraph2 span {
+    color: #ff8a89;
+}
+
+.carousel-item.second .container-inner_paragraph2 span, .carousel-item.fifth .container-inner_paragraph2 span {
+  color: #8e95ff;
+}
+
+.carousel-item.third .container-inner_paragraph2 span, .carousel-item.sixth .container-inner_paragraph2 span {
+  color: #47c690;
+}
+
+  /* Images */
+
+.carousel-item.first .container-inner_images, .carousel-item.second .container-inner_images, .carousel-item.sixth .container-inner_images {
+  align-items: flex-end;
+}
+
+.carousel-item.first .container-inner_images img:first-child {
+  max-height: 430.4px;
+}
+
+.carousel-item.second .container-inner_images img:first-child {
+  max-height: 423.6px;
+}
+
+.carousel-item.third .container-inner_images img:first-child {
+  max-height: 297.4px;
+  left: 100.6px;
+  z-index: 5;
+}
+
+.carousel-item.sixth .container-inner_images img:first-child {
+  max-height: 402.1px;
+  left: 204.9px;
+  z-index: 5;
+}
+
+.carousel-item.third .container-inner_images img, .carousel-item.sixth .container-inner_images img {
+  position: relative;
+}
+
+@media screen and (max-height: 899px) {
+  .carousel-item.first .container-inner_images img:first-child, .carousel-item.fourth .container-inner_images img:first-child, .carousel-item.fifth .container-inner_images img:first-child {
+    max-height: 47.82vh;
+  }
+
+  .carousel-item.second .container-inner_images img:first-child {
+    max-height: 47.07vh;
+  }
+
+  .carousel-item.third .container-inner_images img:first-child {
+    max-height: 33.04vh;
+    left: 11.18vh;
+  }
+
+  .carousel-item.sixth .container-inner_images img:first-child {
+    max-height: 44.68vh;
+    left: 22.77vh;
+  }
+}
+
+
+  /* Text block */
+.carousel-item.first .container-inner_paragraph1 {
+  max-height: 90px;
+}
+
+.carousel-item.first .container-inner_paragraph2 {
+  margin-top: 118px;
+}
+
+.carousel-item.first .container-inner_text button {
+  margin-top: 70px;
+}
+
+.carousel-item.second .container-inner_paragraph1, .carousel-item.third .container-inner_paragraph1 {
+  max-height: 124px;
+}
+
+.carousel-item.second .container-inner_paragraph2 {
+  margin-top: 126px;
+}
+
+.carousel-item.second .container-inner_text button, .carousel-item.third .container-inner_text button, .carousel-item.fourth .container-inner_text button, .carousel-item.fifth .container-inner_text button {
+  margin-top: 28px;
+}
+
+.carousel-item.third .container-inner_text h1 {
+  max-height: 190px;
+}
+
+.carousel-item.third .container-inner_paragraph1 {
+  margin-top: 41px;
+}
+
+.carousel-item.third .container-inner_paragraph2 {
+  margin-top: 58px;
+}
+
+.carousel-item.fourth .container-inner_paragraph1, .carousel-item.fifth .container-inner_paragraph1 {
+  max-height: 150px;
+}
+
+.carousel-item.fourth .container-inner_paragraph1 {
+  margin-top: 47px;
+}
+
+.carousel-item.fourth .container-inner_paragraph2, .carousel-item.fifth .container-inner_paragraph2 {
+  margin-top: 92px;
+}
+
+.carousel-item.sixth .container-inner_text button {
+  margin-top: 87px;
+}
+
+.carousel-item.sixth .container-inner_paragraph2 {
+  font-size: 1.286rem;
+  margin-top: 54px;
+}
+
+/* If screen height is less than 900px then use .vh values*/
+
+@media screen and (max-height: 899px) {
+
+  /* First slide */
+  .carousel-item.first .container-inner_paragraph1 {
+    max-height: 10vh;
+  }
+
+  .carousel-item.first .container-inner_paragraph2 {
+    margin-top: 13.1vh;
+  }
+
+  .carousel-item.first .container-inner_text button {
+    margin-top: 7.8vh;
+  }
+
+  /* Second slide */
+  .carousel-item.second .container-inner_paragraph1, .carousel-item.third .container-inner_paragraph1 {
+    max-height: 13.78vh;
+  }
+
+  .carousel-item.second .container-inner_paragraph2 {
+    margin-top: 14vh;
+  }
+
+  .carousel-item.second .container-inner_text button, .carousel-item.third .container-inner_text button, .carousel-item.fourth .container-inner_text button, .carousel-item.fifth .container-inner_text button {
+    margin-top: 3.1vh;
+  }
+
+  .carousel-item.third .container-inner_text h1 {
+    max-height: 21.11vh;
+  }
+
+  .carousel-item.third .container-inner_paragraph1 {
+    margin-top: 4.56vh;
+  }
+
+  .carousel-item.third .container-inner_paragraph2 {
+    margin-top: 6.44vh;
+  }
+
+  .carousel-item.fourth .container-inner_paragraph1, .carousel-item.fifth .container-inner_paragraph1 {
+    max-height: 16.67vh;
+  }
+
+  .carousel-item.fourth .container-inner_paragraph2, .carousel-item.fifth .container-inner_paragraph2 {
+    margin-top: 10.22vh;
+  }
+
+  .carousel-item.fourth .container-inner_paragraph1 {
+    margin-top: 5.22vh;
+  }
+
+  .carousel-item.sixth .container-inner_text button {
+    margin-top: 9.67vh;
+  }
+
+  .carousel-item.sixth .container-inner_paragraph2 {
+    margin-top: 6vh;
+  }
+
+}
+
+@media screen and (min-height:901px) {
+  .carousel-item.sixth .container-inner_text {
+    flex: 0 0 600px;
+  }
+
+  .carousel-item.sixth .container-inner_images {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+}
