@@ -203,6 +203,10 @@
   max-height: 518.7px;
 }
 
+.container-inner_images img:first-child {
+  max-height: 430px;
+}
+
 /* Slides differencies */
 
 .carousel-item.first .line {
