@@ -32,6 +32,7 @@
   header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
@@ -51,8 +52,63 @@
     color: #0d1126;
   }
 
+  nav {
+    display: flex;
+    align-items: center;
+
+  }
+
   nav a:first-child {
     margin-right: 61px;
+  }
+
+  h1 {
+    font-size: 3.429rem;
+    font-weight: 800;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.38;
+    letter-spacing: 0.48px;
+    text-align: left;
+  }
+
+  .button {
+      border-radius: 24px;
+      border: 0;
+      background-color: #041e44;
+      font-size: 1.143rem;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: normal;
+      text-align: center;
+      color: #edeeff;
+  }
+
+  header .button {
+    display: none;
+    padding: 15px 36px;
+    margin-left: 59px;
+  }
+
+.cross {
+  color: #fa6102;
+  font-size: 39px;
+  font-weight: 400;
+  width: 39px;
+  height: 39px;
+  border-radius: 15px;
+  background-color: rgba(255, 219, 201, 0.19);
+  text-align: center;
+  line-height: 1;
+  display: inline-block;
+  margin-left: 32px;
+  display: none;
+  }
+
+  .cross:hover {
+    color: rgba(255, 219, 201, 1);
+    background-color: #fa6102;
+    cursor: pointer;
   }
 
 .container-custom {
@@ -130,13 +186,6 @@
 }
 
 .container-inner_text h1 {
-  font-size: 3.429rem;
-  font-weight: 800;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.38;
-  letter-spacing: 0.48px;
-  text-align: left;
   color: #1a1b22;
   text-transform: uppercase;
   margin-bottom: 39px;
@@ -171,15 +220,6 @@
 }
 
 .container-inner_text button {
-  border-radius: 24px;
-  border: 0;
-  background-color: #041e44;
-  font-size: 1.143rem;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: normal;
-  text-align: center;
-  color: #edeeff;
   padding: 15px 60px;
 }
 
@@ -198,6 +238,211 @@
 .container-inner_images img:first-child {
   max-height: 430px;
 }
+
+/* About us */
+
+.container-other {
+  max-width: 1440px;
+  padding: 0 186px;
+  display: none;
+}
+
+.container-other h1 {
+  color: #1d1d1d;
+  margin-bottom: 44px;
+}
+
+.container-other .line {
+  margin-bottom: 21px;
+}
+
+.line.green {
+  background-color: #47c690;
+}
+
+.line.red {
+  background-color: #ff8a89;
+}
+
+.line.blue {
+  background-color: #8e95ff;
+}
+
+.subheading {
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 1.31;
+  text-align: left;
+  color: #1d1d1d;
+  margin-bottom: 16.5px;
+}
+
+.container-other p {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.75;
+  letter-spacing: 0.16px;
+  text-align: left;
+  color: #3c3c3c;
+  margin-bottom: 73.5px;
+  max-width: 662px;
+}
+
+.container-other h2 {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.38;
+  letter-spacing: 0.48px;
+  text-align: left;
+  color: #1d1d1d;
+  margin-bottom: 33px;
+}
+
+.team {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 193px 193px 193px 193px;
+  grid-template-rows: auto auto;
+  grid-row-gap: 55px;
+  justify-content: space-between;
+}
+
+.team_member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 193px;
+}
+
+.team_member:hover {
+  cursor: pointer;
+}
+
+.team_member:hover img {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-out;
+}
+
+.team_member:hover .team_name {
+  text-decoration: underline;
+}
+
+.team_member img {
+  width: 100%;
+  margin-bottom: 27px;
+}
+
+.team_name {
+  font-size: 15px;
+  line-height: 1.27;
+  text-align: center;
+  color: #1d1d1d;
+  margin-bottom: 4px;
+}
+
+.team_role {
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 1.23;
+}
+
+.team_role.blue {
+  color: #8e95ff;
+}
+
+.team_role.green {
+  color: #47c690;
+}
+
+.team_role.red {
+  color: #ff8a89;
+}
+
+/* Member page */
+
+.page {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 186px;
+  padding-top: 117px;
+  max-width: 1440px;
+  margin: 0 auto;
+  margin-top: -90px;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+.info {
+  flex: 1 0 646px;
+}
+
+.info > img {
+  width: 30px;
+  margin-bottom: 35px;
+}
+
+.info img:hover {
+  cursor: pointer;
+}
+
+.info h3 {
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0.42px;
+  color: #1d1d1d;
+  margin-bottom: 5px;
+}
+
+.page_role {
+  font-size: 26px;
+  font-weight: bold;
+  line-height: 1.23;
+  display: block;
+  margin-bottom: 37px;
+}
+
+.page_role.blue {
+  color: #8e95ff;
+}
+
+.page_links {
+  margin-bottom: 37px;
+}
+
+.page_links a {
+  margin-right: 10px;
+}
+
+.page_links img:hover{
+  transform: scale(1.1);
+}
+
+.page_text p {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.75;
+  letter-spacing: 0.16px;
+  text-align: left;
+  color: #1d1d1d;
+}
+
+.pic img {
+  max-width: 540px;
+  margin-top: 117px;
+  margin-left: 52px;
+}
+
+.pic_background {
+  width: 850px;
+  height: 850px;
+  background-color: rgba(232, 234, 255, 0.44);
+  border-radius: 50%;
+  position: relative;
+  bottom: 117px;
+  left: 40px;
+}
+
 
 /* If screen height is less than 900px then use .vh values*/
 
@@ -239,6 +484,14 @@
 
   .container-inner_images img {
     max-height: 100%;
+  }
+
+  .container-other {
+    padding: 0 12.84%;
+  }
+
+  .page {
+    padding-left: 12.84%;
   }
 }
 

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title> Jet Black requests</title>
+    <style>
+
+      @font-face {
+        font-family: Mark;
+        src: url(mark_medium.otf);
+      }
+
+      table {
+        font-size: 14px;
+        font-family: Mark;
+      }
+
+      td.text-truncate {
+        max-width: 500px;
+      }
+
+      a {
+        color: blue!important;
+      }
+
+      a:hover {
+        text-decoration: underline!important;
+        cursor: pointer!important;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="table-responsive p-5">
+      <table class="table table-hover">
+          <thead class="thead-dark">
+              <tr>
+                  <th scope="col">Ticket ID</th>
+                  <th scope="col">Subject</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Severity</th>
+                  <th scope="col">Product Area</th>
+                  <th scope="col">Date and time</th>
+                  <th scope="col">Requester</th>
+                  <th scope="col"></th>
+              </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+      </div>
+      <!-- Modal -->
+      <div class="modal fade" id="requestDescription" tabindex="-1" role="dialog" aria-labelledby="requestDescription" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title"></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Follow</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+      function getTickets(url, a) {
+        let nextPage;
+
+          $.ajax({
+            url: url,
+            type: 'GET',
+            headers: {
+              "Authorization": "Bearer f963a2e4f1219691a33d90b4eb45fb5e9892a1d676cd5a70cc1eff141c096564"
+            },
+            async: false,
+            complete: function (data) {
+
+              let response = data.responseJSON;
+            //  let tickets = response.tickets;
+            let tickets = response.results;
+
+              for (let i = 0; i < tickets.length; i++) {
+
+                let currentTicket = tickets[i];
+
+              //  if (currentTicket.status == 'open') {
+                  let customfields = currentTicket.custom_fields;
+                  let severity = '';
+                  let productArea = '';
+
+                  for (let y = 0; y < customfields.length; y++) {
+
+                    let fieldValue = customfields[y].value;
+                    let fieldId = customfields[y].id;
+
+                    if (fieldValue != null) {
+                      if (fieldId == 360024218954) {
+                        fieldValue == 'tier_1' ? severity = 'Sev 0'
+                        : fieldValue == 'tier_2' ? severity = 'Sev 1'
+                        : fieldValue == 'tier_3' ? severity = 'Sev 2'
+                        : fieldValue == 'sev_3_-_minor' ? severity = 'Sev 3'
+                        : fieldValue == 'sev_4_-_trivial' ? severity = 'Sev 4'
+                        : fieldValue == 'sev_5_-_enhancement' ? severity = 'Sev 5'
+                        : fieldValue == 'sev_6_-_feedback' ? severity = 'Sev 6'
+                        : severity = fieldValue;
+                      }
+                      else if (fieldId == 360025918074) { productArea = fieldValue.replace(/_/g, ' '); }
+                    }
+                  }
+
+                  //let requesterId = response.users.findIndex(el => el.id === currentTicket.requester_id);
+                  //let requester = response.users[requesterId].name;
+
+                  $('tbody').append('<tr class="row-' + a + '-' + i + '"></tr>');
+                  let currentRow = $('.row-' + a + '-' + i);
+                  currentRow.append(
+                    '<td>' + currentTicket.id + '</td>',
+                    '<td class="subject">' + currentTicket.subject + '</td>',
+                    '<td class="text-truncate d-inline-block"><a data-toggle="modal" data-target="#requestDescription">' + currentTicket.description + '</a></td>',
+                    '<td>' + severity + '</td>',
+                    '<td>' + productArea + '</td>',
+                    '<td>' + new Date(currentTicket.created_at).toLocaleString('en-US') + '</td>',
+                    '<td class="requester" id=' + currentTicket.requester_id + '></td>',
+                    );
+              //  }
+            }
+
+            let idsArray = [];
+            $('.requester').each(function() {
+              idsArray.push($(this).attr('id'));
+            });
+
+            $.ajax({
+            url: 'https://jetblack.zendesk.com/api/v2/users/show_many.json?ids=' + idsArray,
+            type: 'GET',
+            headers: {
+              "Authorization": "Bearer f963a2e4f1219691a33d90b4eb45fb5e9892a1d676cd5a70cc1eff141c096564"
+            },
+            async: false,
+            complete: function(data) {
+              let users = data.responseJSON.users;
+              $('.requester').each(function () {
+                let cell = $(this);
+                let index = users.findIndex(el => el.id == cell.attr('id'));
+                cell.text(users[index].name);
+              });
+            }
+          });
+            nextPage = response.next_page;
+          }
+        })
+        return nextPage;
+      };
+
+    //  let page = 'https://jetblack.zendesk.com/api/v2/tickets.json?include=users';
+      let page = 'https://jetblack.zendesk.com/api/v2/search.json?query=type%3Aticket+status%3Aopen';
+      let pageCount = 1;
+
+      while (page != null) {
+        page = getTickets(page, pageCount);
+        pageCount++;
+      }
+
+      $(document).ready(function() {
+        $('#requestDescription').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget) // Button that triggered the modal
+          var title = button.closest('td').siblings('.subject').text();
+          var description = button.text();
+          var modal = $(this);
+          modal.find('.modal-title').text(title);
+          modal.find('.modal-body').text(description);
+        })
+      });
+
+    </script>
+  </body>
+</html>

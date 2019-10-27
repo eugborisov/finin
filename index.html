@@ -13,10 +13,54 @@
     <header>
       <img src="img/logo.svg" alt="logo">
       <nav>
-        <a href="#">About Us</a>
+        <a href="#" id="link-about">About Us</a>
         <a href="#">Blog</a>
+        <a href="#" class="btn btn-primary button">Sign up now - It’s Free</a>
+        <div class="cross">
+          &times;
+        </div>
       </nav>
     </header>
+    <div class="container container-other">
+      <div class="line green">
+      </div>
+      <h1>About us</h1>
+      <div class="subheading">AN ALTERNATIVE TO BANKING OF THE PAST </div>
+      <p>We believe that everyone deserves a simpler, low-stress relationship with their money. Our mission is to make you feel more comfortable talking about, managing, and doing stuff with your money.</p>
+      <div class="line red">
+      </div>
+      <h2>Team</h2>
+      <div class="team">
+        <member v-for="member in members" :key="member.id" :pagelink="member.pagelink" :imglink="member.imglink" :firstname='member.firstname' :lastname='member.lastname' :color="member.color" :role="member.role"></member>
+      </div>
+      <div class="line blue">
+      </div>
+      <h2>Advisors</h2>
+      <div class="advisors">
+        <advisor v-for="advisor in advisors"></advisor>
+      </div>
+    </div>
+    <div class="page d-none" id="ceo">
+      <div class="info">
+        <img src="img/left-arrow.svg" alt="back" class="link-arrow">
+        <h3><b>Suman</b> Gandham</h3>
+        <span class="page_role blue">Founder & CEO</span>
+        <div class="page_links">
+          <a href="#"><img src="img/l.svg" alt="linkedin"></a>
+          <a href="#"><img src="img/t.svg" alt="twitter"></a>
+        </div>
+        <div class="page_text">
+          <p>Suman is the co-founder and CEO of Finin. Having a long-held interest in technology. He envisions that by founding Finin, everyone will have access to a totally refreshed relationship with their money, and more importantly, their spending.</p>
+          <p>Before Finin, Suman was at Nekko Capital Venture Capital based out of Barcelona, closely monitoring, mentoring and investing in startups within the European Fin-Tech landscape. He has also worked with Zapper as the Head of Tech for Spain.</p>
+          <p>With experience in combining market and technology understanding in creating and driving the right products and portfolio to the market. Suman has the experience of founding and scaling multiple startups from the ground up including voz.io and letmecallu.com as feathers to his cap.</p>
+        </div>
+      </div>
+      <div class="pic">
+          <div class="pic_background">
+            <img src="img/ceo-big.png" alt="">
+          </div>
+      </div>
+    </div>
     <div class="container container-custom">
       <div id="carousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-buttons carousel-indicators">
@@ -38,7 +82,7 @@
         </div>
       </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js"></script>
@@ -60,6 +104,43 @@
       $(".carousel").mouseup(function() {
         $(this).css('cursor', 'grab');
       })
+
+      $('#link-about').click(function() {
+        $(this).hide('slow');
+        $('.container-custom').hide('fast');
+        $('header .button').show('slow');
+        $('.cross').show('slow');
+        $('.container-other').show('fast');
+      })
+
+      $('.cross').click(function() {
+        $(this).hide('slow');
+        $('.container-other').hide('fast');
+        $('header .button').hide('slow');
+        $('#link-about').show('slow');
+        $('.container-custom').show('fast');
+      });
+
+      $('.team a').click(function() {
+        let page = $(this).attr('href');
+
+        $('.page').each(function() {
+          let link = '#' + $(this).attr('id');
+          if (link == page) {
+            $(this).removeClass('d-none');
+          }
+        });
+
+        $('.container-other').hide('fast');
+        $('nav').hide('slow');
+      });
+
+      $('.link-arrow').click(function() {
+        $(this).closest('.page').addClass('d-none');
+        $('.container-other').show('fast');
+        $('nav').show('slow');
+      });
+
     </script>
   </body>
 </html>

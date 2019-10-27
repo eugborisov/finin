@@ -7,7 +7,7 @@ Vue.component('slide', {
             <h1 v-html="heading"></h1>
             <div class="container-inner_paragraph1" v-html="paragraph1"></div>
             <div class="container-inner_paragraph2" v-html="paragraph2"></div>
-            <button class="btn btn-primary" type="button" name="button">Join the wait list</button>
+            <button class="btn btn-primary button" type="button" name="button">Join the wait list</button>
         </div>
         <div class="container-inner_images">
           <img :src="imglink1"/>
@@ -82,6 +82,83 @@ new Vue({
         paragraph2: '<b>Your data is yours, truly.  We never store your data<br> 256-bit Site-wide encryption to keep the bad guys out.</b>',
         imglink1: 'img/Group 1576@3x.png',
         imglink2: 'img/Group 1551@3x.png'
+      }
+    ]
+  }
+});
+
+Vue.component('member', {
+  template: `
+  <a :href="pagelink">
+  <div class="team_member">
+    <img :src="imglink" alt="team member">
+    <span class="team_name"><b>{{ firstname }}</b> {{ lastname }}</span>
+    <span class="team_role" :class="color">{{ role }}</span>
+  </div>
+  </a>
+  `,
+  props: {
+    pagelink: String,
+    imglink: String,
+    firstname: String,
+    lastname: String,
+    color: String,
+    role: String
+  }
+});
+
+new Vue({
+  el: '.team',
+  data: {
+    members: [
+      {
+        id: 1,
+        pagelink: '#ceo',
+        imglink: 'img/ceo.png',
+        firstname: 'Suman',
+        lastname: 'Gandham',
+        color: 'blue',
+        role: 'Founder&CEO'
+      },
+      {
+        id: 2,
+        imglink: 'img/coo.png',
+        firstname: 'Sudheer',
+        lastname: 'Maram',
+        color: 'green',
+        role: 'Co - Founder & COO'
+      },
+      {
+        id: 3,
+        imglink: 'img/cto.png',
+        firstname: 'Markish',
+        lastname: 'R',
+        color: 'red',
+        role: 'CTO'
+      },
+      {
+        id: 4,
+        imglink: 'img/gp.png',
+        firstname: 'Sanmaya',
+        lastname: 'Mohanty',
+        color: 'blue',
+        role: 'Growth + Product'
+      },
+      {
+        id: 5,
+        imglink: 'img/ld.png',
+        firstname: 'Rupesh',
+        lastname: 'Dwivedi',
+        color: 'green',
+        role: 'Lead Designer'
+      },
+      {
+        id: 6,
+        imglink: 'img/dev.png',
+        firstname: 'Yashovardhan',
+        lastname: 'Agrawal',
+        color: 'red',
+        role: 'Developer'
       }
     ]
   }
