@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="82.803" height="33.085" viewBox="0 0 82.803 33.085">
+    <defs>
+        <style>
+            .cls-1{fill:#3e5c9a}.cls-2,.cls-3{fill:#fff}.cls-3{font-size:12px;font-family:Avenir-Medium,Avenir;font-weight:500}
+        </style>
+    </defs>
+    <g id="Group_1579" data-name="Group 1579" transform="translate(-286.722 -611.226)">
+        <rect id="Rectangle_240" width="82.803" height="33.085" class="cls-1" data-name="Rectangle 240" rx="8.469" transform="translate(286.722 611.226)"/>
+        <path id="Path_550" d="M2248.161 696.072h4.027v-10.084H2255l.3-3.377h-3.109v-1.923c0-.8.16-1.111.93-1.111h2.179v-3.5h-2.788c-3 0-4.347 1.32-4.347 3.846v2.691h-2.095v3.419h2.095z" class="cls-2" data-name="Path 550" transform="translate(-1943.417 -58.304)"/>
+        <text id="Share" class="cls-3" transform="translate(337 631)">
+            <tspan x="-15.234" y="0">Share</tspan>
+        </text>
+    </g>
+</svg>

@@ -15,7 +15,7 @@
       <nav>
         <a href="#" id="link-about">About Us</a>
         <a href="#">Blog</a>
-        <a href="#" class="btn btn-primary button">Sign up now - It’s Free</a>
+        <a href="#" class="btn btn-primary button" id="header-button">Join the wait list</a>
         <div class="cross">
           &times;
         </div>
@@ -30,36 +30,18 @@
       <div class="line red">
       </div>
       <h2>Team</h2>
-      <div class="team">
+      <div class="team grid">
         <member v-for="member in members" :key="member.id" :pagelink="member.pagelink" :imglink="member.imglink" :firstname='member.firstname' :lastname='member.lastname' :color="member.color" :role="member.role"></member>
       </div>
       <div class="line blue">
       </div>
       <h2>Advisors</h2>
-      <div class="advisors">
-        <advisor v-for="advisor in advisors"></advisor>
+      <div class="advisors grid">
+        <advisor v-for="advisor in advisors" :key="advisor.id" :pagelink="advisor.pagelink" :imglink="advisor.imglink" :firstname='advisor.firstname' :lastname='advisor.lastname' :color="advisor.color" :role="advisor.role"></advisor>
       </div>
     </div>
-    <div class="page d-none" id="ceo">
-      <div class="info">
-        <img src="img/left-arrow.svg" alt="back" class="link-arrow">
-        <h3><b>Suman</b> Gandham</h3>
-        <span class="page_role blue">Founder & CEO</span>
-        <div class="page_links">
-          <a href="#"><img src="img/l.svg" alt="linkedin"></a>
-          <a href="#"><img src="img/t.svg" alt="twitter"></a>
-        </div>
-        <div class="page_text">
-          <p>Suman is the co-founder and CEO of Finin. Having a long-held interest in technology. He envisions that by founding Finin, everyone will have access to a totally refreshed relationship with their money, and more importantly, their spending.</p>
-          <p>Before Finin, Suman was at Nekko Capital Venture Capital based out of Barcelona, closely monitoring, mentoring and investing in startups within the European Fin-Tech landscape. He has also worked with Zapper as the Head of Tech for Spain.</p>
-          <p>With experience in combining market and technology understanding in creating and driving the right products and portfolio to the market. Suman has the experience of founding and scaling multiple startups from the ground up including voz.io and letmecallu.com as feathers to his cap.</p>
-        </div>
-      </div>
-      <div class="pic">
-          <div class="pic_background">
-            <img src="img/ceo-big.png" alt="">
-          </div>
-      </div>
+    <div id="pages">
+      <page v-for="page in pages" :key="page.id" :anchor="page.anchor" :color="page.color" :firstname="page.firstname" :lastname="page.lastname" :role="page.role" :links="page.links" :text="page.text" :imglink="page.imglink"></page>
     </div>
     <div class="container container-custom">
       <div id="carousel" class="carousel slide" data-ride="carousel">
@@ -81,6 +63,57 @@
           <slide v-for="slide in slides" :key="slide.id" :itemclass="slide.itemclass" :heading="slide.heading" :paragraph1="slide.paragraph1" :paragraph2="slide.paragraph2" :imglink1="slide.imglink1" :imglink2="slide.imglink2"></slide>
         </div>
       </div>
+      <div class="sign-up">
+        <div class="subheader">
+          <div class="line green"></div>
+          <span>Thanks, for your interest.</span>
+          <div class="cross">
+            &times;
+          </div>
+        </div>
+        <div class="container-inner">
+          <div class="container-inner_text before">
+            <h1>Get your free account</h1>
+            <div class="container-inner_paragraph1">Book your spot now and get updated with our<br> new upcoming features and info about product.</div>
+            <form class="needs-validation">
+              <div class="form-group">
+                <input type="text" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Your name">
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="example@email.com" required>
+              </div>
+              <div class="row">
+                <div class="col-1">
+                  <input type="phone" class="form-control" id="phone-code" aria-describedby="phoneCodeHelp" placeholder="+91" readonly>
+                </div>
+                <div class="col-11">
+                  <input type="phone" class="form-control" id="phone-number" aria-describedby="phoneNumberHelp" placeholder="12345 12345" required>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary button">Join the wait list</button>
+            </form>
+          </div>
+          <div class="container-inner_text after">
+            <h1>Bunty, it means a lot</h1>
+            <div class="after_paragraph1"><b>We’ll be launching in the coming weeks.<br>We’ll let you know once we’re ready.</b>
+            </div>
+            <span class="after_number">1230</span>
+            <span class="after_text">People, ahead of you</span>
+            <div class="after_paragraph2">Spread the word with your friends To jump ahead on<br>the queue & start Living Finin’s way of Life
+            </div>
+            <div class="share-buttons">
+              <a href="#"><img src="img/share1.png" alt="share via mail"></a>
+              <a href="#"><img src="img/share2.svg" alt="share via facebook"></a>
+              <a href="#"><img src="img/share3.svg" alt="share via whatsapp"></a>
+              <a href="#"><img src="img/share4.svg" alt="share via twitter"></a>
+            </div>
+          </div>
+          <div class="container-inner_images">
+            <img src="img/signup1.svg"/>
+            <img src="img/signup2.png"/>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -88,59 +121,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="vuecode.js"></script>
-    <script type="text/javascript">
-      $(".carousel").swipe({
-
-        swipe: function(event, direction, distance, duration, fingerCount, fingerData) {
-
-          if (direction == 'up') $(this).carousel('next');
-          if (direction == 'down') $(this).carousel('prev');
-          $(this).css('cursor', 'grabbing');
-        },
-        allowPageScroll:"vertical"
-
-      });
-
-      $(".carousel").mouseup(function() {
-        $(this).css('cursor', 'grab');
-      })
-
-      $('#link-about').click(function() {
-        $(this).hide('slow');
-        $('.container-custom').hide('fast');
-        $('header .button').show('slow');
-        $('.cross').show('slow');
-        $('.container-other').show('fast');
-      })
-
-      $('.cross').click(function() {
-        $(this).hide('slow');
-        $('.container-other').hide('fast');
-        $('header .button').hide('slow');
-        $('#link-about').show('slow');
-        $('.container-custom').show('fast');
-      });
-
-      $('.team a').click(function() {
-        let page = $(this).attr('href');
-
-        $('.page').each(function() {
-          let link = '#' + $(this).attr('id');
-          if (link == page) {
-            $(this).removeClass('d-none');
-          }
-        });
-
-        $('.container-other').hide('fast');
-        $('nav').hide('slow');
-      });
-
-      $('.link-arrow').click(function() {
-        $(this).closest('.page').addClass('d-none');
-        $('.container-other').show('fast');
-        $('nav').show('slow');
-      });
-
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
