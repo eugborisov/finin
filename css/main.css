@@ -121,12 +121,12 @@
   }
 
   .button {
-      border-radius: 24px;
+      border-radius: 28px;
       border: 0;
       background-color: #041e44;
       font-size: 1.143rem;
       font-weight: 500;
-      line-height: 1;
+      line-height: 1.3;
       letter-spacing: normal;
       text-align: center;
       color: #edeeff;
@@ -161,6 +161,8 @@
     background-color: #fa6102;
     cursor: pointer;
   }
+
+  /* Slider screens */
 
 .container-custom {
   max-width: 1440px;
@@ -212,10 +214,6 @@
   transform: scale(1.2);
 }
 
-.carousel {
-  cursor: grab;
-}
-
 .line {
   width: 4.44vh;
   height: 0.9vh;
@@ -232,7 +230,7 @@
 }
 
 .container-inner_text {
-  flex: 0 1 50%;
+  flex: 0 1 55%;
   height: 100%;
 }
 
@@ -275,7 +273,7 @@
 }
 
 .container-inner_images {
-  flex: 1 0 50%;
+  flex: 1 0 45%;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
@@ -283,11 +281,38 @@
 }
 
 .container-inner_images img {
-  max-height: 518.7px;
+  max-height: 530px;
 }
 
-.container-inner_images img:first-child {
-  max-height: 430px;
+#arrow-down {
+  display: none;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 35px;
+  height: 52px;
+  border-radius: 18px;
+  border: solid 1px rgba(142,149,255,0.38);
+  background-color: #ffffff;
+}
+
+.first #arrow-down {
+  display: block;
+}
+
+#arrow-down:hover {
+  cursor: pointer;
+  background-color: var(--blue);
+}
+
+#arrow-down:hover img {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(75deg) brightness(102%) contrast(101%);
+}
+
+#arrow-down img {
+  display: block;
+  margin: 14px auto;
+  height: 50%;
 }
 
 /* Sign up */
@@ -651,11 +676,11 @@
 
   .container-inner {
     margin-top: 2.3vh;
-    height: 57.6vh;
+    height: 58.9vh;
   }
 
   .container-inner_text h1 {
-    margin-bottom: 4.3vh;
+    margin-bottom: 4.33vh;
     max-height: 13.78vh;
   }
 
@@ -669,6 +694,15 @@
 
   .container-inner_images img {
     max-height: 100%;
+  }
+
+  #arrow-down {
+    height: 5.78vh;
+    width: 3.89vh;
+  }
+
+  #arrow-down img {
+    margin: 1.56vh auto;
   }
 
   .container-other {

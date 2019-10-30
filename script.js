@@ -1,4 +1,4 @@
-$(".carousel").swipe({
+/*$(".carousel").swipe({
 
   swipe: function(event, direction, distance, duration, fingerCount, fingerData) {
 
@@ -8,11 +8,22 @@ $(".carousel").swipe({
   },
   allowPageScroll:"vertical"
 
-});
+});*/
 
-$(".carousel").mouseup(function() {
-  $(this).css('cursor', 'grab');
-})
+ if ($('#carousel').is(':visible')) {
+
+    $('#carousel').bind('wheel', function(e) {
+      if(e.originalEvent.wheelDelta /120 > 0) {
+          $(this).carousel('next');
+      } else {
+          $(this).carousel('prev');
+      }
+    });
+
+    $('#arrow-down').click(function() {
+      $('#carousel').carousel('next');
+    });
+  }
 
 $('.cta-button').click(function() {
   $('#carousel').hide();
