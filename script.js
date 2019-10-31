@@ -15,11 +15,18 @@ if ($('#carousel').is(':visible')) {
   $('#carousel').carousel('pause');
 
    $('#carousel').mousewheel(function(event) {
-     if(event.deltaY > 0) {
+
+     if (!$(this).hasClass('disabled')) {
+       if(event.deltaY > 0) {
          $(this).carousel('next');
-     } else {
+       } else {
          $(this).carousel('prev');
+       }
+       $(this).addClass('disabled');
+       setTimeout(function() {$("#carousel").removeClass('disabled')}, 1000);
      }
+     $('#carousel').carousel('pause');
+
    });
 
    $('#arrow-down').click(function() {
