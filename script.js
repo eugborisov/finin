@@ -1,3 +1,30 @@
+if ($('#carousel').is(':visible')) {
+
+  $('#carousel').carousel('pause');
+
+   $('#carousel').mousewheel(function(event) {
+
+     if (!$(this).hasClass('disabled')) {
+       if(event.deltaY > 0) {
+         $(this).carousel('prev');
+       } else {
+         $(this).carousel('next');
+       }
+       console.log('enabled scroll');
+       $(this).addClass('disabled');
+       setTimeout(function() {$("#carousel").removeClass('disabled')}, 1000);
+     } else {
+       console.log('disabled scroll');
+     }
+     $('#carousel').carousel('pause');
+
+   });
+
+   $('#arrow-down').click(function() {
+     $('#carousel').carousel('next');
+   });
+ }
+
 $(document).ready(function(){
   /*$(".carousel").swipe({
 
@@ -10,30 +37,6 @@ $(document).ready(function(){
     allowPageScroll:"vertical"
 
   });*/
-
-  if ($('#carousel').is(':visible')) {
-
-    $('#carousel').carousel('pause');
-
-     $('#carousel').mousewheel(function(event) {
-
-       if (!$(this).hasClass('disabled')) {
-         if(event.deltaY > 0) {
-           $(this).carousel('next');
-         } else {
-           $(this).carousel('prev');
-         }
-         $(this).addClass('disabled');
-         setTimeout(function() {$("#carousel").removeClass('disabled')}, 1000);
-       }
-       $('#carousel').carousel('pause');
-
-     });
-
-     $('#arrow-down').click(function() {
-       $('#carousel').carousel('next');
-     });
-   }
 
   $('.cta-button').click(function() {
     $('#carousel').hide();
