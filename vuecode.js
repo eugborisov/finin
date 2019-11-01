@@ -12,6 +12,7 @@ Vue.component('slide', {
         <div class="container-inner_images">
           <img :src="imglink"/>
         </div>
+        <button class="btn btn-primary button cta-button mobile-button" type="button" name="button">Join the wait list</button>
         <div id="arrow-down"><img src="img/down-arrow.svg"></div>
       </div>
     </div>`,
@@ -73,7 +74,7 @@ new Vue({
         itemclass: 'carousel-item sixth',
         heading: 'We take your<br>Security, Seriously.',
         paragraph1: 'Highly secure app coupled with a savings account<br>offered in partnership with an RBI regulated bank.<br>Together we’re delivering a new financial experience<br>that’s easier, faster and friendlier.',
-        paragraph2: '<b>Your data is yours, truly.  We never store your data<br> 256-bit Site-wide encryption to keep the bad guys out.</b>',
+        paragraph2: '<p class="desktop"><b>Your data is yours, truly.  We never store your data<br> 256-bit Site-wide encryption to keep the bad guys out.</b></p><p class="mobile"><b>Your data is yours, truly.<br>We never store your data</b></p>',
         imglink: 'img/slide6.png'
       }
     ]

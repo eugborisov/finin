@@ -140,14 +140,10 @@
       color: #edeeff;
   }
 
-  header .button {
+  #header-button {
     display: none;
     padding: 15px 36px;
     margin-left: 59px;
-  }
-
-  header .cross {
-    display: none;
   }
 
 .cross {
@@ -162,6 +158,7 @@
   line-height: 1;
   display: inline-block;
   margin-left: 32px;
+  display: none;
   }
 
   .cross:hover {
@@ -181,6 +178,12 @@
 
 .container-custom, #pages {
   margin-top: 122px;
+
+}
+
+.container-custom {
+  position: relative;
+  z-index: 1035;
 }
 
 .container-other {
@@ -284,6 +287,14 @@
   font-weight: bold;
 }
 
+.container-inner_paragraph2 .mobile {
+  display: none;
+}
+
+.container-inner_paragraph2 .desktop {
+  display: block;
+}
+
 .container-inner_text button {
   padding: 19px 60px;
 }
@@ -329,6 +340,10 @@
   display: block;
   margin: 14px auto;
   height: 50%;
+}
+
+.mobile-button, .menu-button, .mobile-menu, .mobile-header div {
+  display: none;
 }
 
 /* Sign up */
@@ -454,6 +469,7 @@
 }
 
 .container-other .line {
+  margin-top: 98px;
   margin-bottom: 21px;
 }
 
@@ -513,6 +529,10 @@
   justify-content: space-between;
 }
 
+.team a:hover {
+  text-decoration: none;
+}
+
 .team_member {
   display: flex;
   flex-direction: column;
@@ -570,6 +590,7 @@
   width: 100%;
   display: grid;
   grid-template-columns: 193px 250px 193px 193px;
+  grid-row-gap: 55px;
   justify-content: space-between;
   margin-bottom: 300px;
 }
@@ -666,7 +687,7 @@
   position: relative;
   bottom: 130px;
   left: 40px;
-  z-index: 1000;
+  z-index: 1200;
 }
 
 .blue .pic_background {
@@ -684,7 +705,7 @@
 
 /* If screen height is less than 900px then use .vh values*/
 
-@media screen and (max-height: 899px) {
+@media screen and (max-height: 899px) and (min-width: 1025px) {
 
   html {
     font-size: 1.56vh;

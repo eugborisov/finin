@@ -99,7 +99,7 @@
 
 /* If screen height is less than 900px then use .vh values*/
 
-@media screen and (max-height: 899px) {
+@media screen and (max-height: 899px) and (min-width: 1025px) {
 
   /* First slide */
   .carousel-item.first .container-inner_paragraph1 {
