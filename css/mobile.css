@@ -19,7 +19,7 @@
   header {
     flex-direction: column;
     min-height: 11.7vh;
-    padding: 0 8.53%;
+    padding: 0 6.93%;
     border-bottom-left-radius: 36px;
     border-bottom-right-radius: 36px;
   }
@@ -94,6 +94,8 @@
     align-items: flex-end;
     width: 18px;
     height: 18px;
+    position: relative;
+    z-index: 1199;
   }
 
   .menu-button span {
@@ -107,12 +109,24 @@
     width: 12px;
   }
 
-  .container-custom, #pages, .container-other {
+  #desktop-cross {
+    display: none;
+  }
+
+  .container-custom, #pages {
     margin-top: 15vh!important;
   }
 
+  .container-other {
+    margin-top: 18vh!important;
+  }
+
   .container-custom {
-    padding: 0 8.53%;
+    padding: 0 6.93%;
+  }
+
+  .container-custom .social-buttons {
+    display: none;
   }
 
   .container-inner {
@@ -192,7 +206,7 @@
   }
 
   .container-other, .page {
-    padding: 0 8.53%;
+    padding: 0 6.93%;
   }
 
   .container-other .line {
@@ -222,21 +236,64 @@
   .page {
     flex-direction: column;
     flex-flow: column-reverse;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .page_text p {
+    font-size: 12px;
+    letter-spacing: 0.12px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+
+  .pic {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    overflow: hidden;
+    height: 287px;
   }
 
   .pic_background {
     width: 38.79vh;
     height: 38.79vh;
     border-radius: 50%;
-    position: relative;
-    bottom: 3.45vh;
-    left: 13.55vh;
+    position: absolute;
+    top: -5vh;
+    left: 18.5vh;
     z-index: 1200;
 }
 
-.pic img {
-  max-width: 23.77vh;
-  margin-top: 5.91vh;
-  margin-left: 3.69vh;
-}
+  .pic img {
+    max-width: 23.77vh;
+    margin-top: 12vh;
+    margin-left: 4vh;
+  }
+
+  .info {
+    margin-top: 200px;
+    flex: 1 0 auto;
+  }
+
+  .info > img {
+    position: relative;
+    bottom: 80px;
+    z-index: 1000;
+  }
+
+  .info h3 {
+    font-size: 31px;
+    margin-bottom: 8px;
+  }
+
+  .page_role {
+    font-size: 19px;
+    margin-bottom: 23px;
+  }
+
+  .page_links {
+    margin-bottom: 22px;
+  }
+
 }

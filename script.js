@@ -38,6 +38,12 @@ $(document).ready(function(){
 
   });*/
 
+  let windowsize = $(window).width();
+
+  $(window).resize(function() {
+    let windowsize = $(window).width();
+  });
+
   $('.cta-button').click(function() {
     $('#carousel').hide();
     $('.sign-up .before').show();
@@ -56,7 +62,7 @@ $(document).ready(function(){
   });
 
   $('.link-about').click(function() {
-    $(this).hide('fast');
+    $('.desktop-nav .link-about').hide('fast');
     $('.container-custom').hide('fast');
     $('header .button').show('fast');
     $('header #desktop-cross').show('fast');
@@ -70,7 +76,7 @@ $(document).ready(function(){
   $('header #desktop-cross').click(function() {
     $(this).hide('fast');
     $('.container-other').hide('fast');
-    $('header .button').hide('fast');
+    $('nav .button').hide('fast');
     $('.link-about').show('fast');
     $('#carousel').show();
     $('.sign-up').hide();
@@ -86,14 +92,23 @@ $(document).ready(function(){
       }
     });
 
+    if (windowsize < 576) {
+      $('.menu-button').hide();
+    }
+
     $('.container-other').hide('fast');
-    $('nav').hide('fast');
+    $('.desktop-nav').hide('fast');
   });
 
   $('.link-arrow').click(function() {
     $(this).closest('.page').addClass('d-none');
     $('.container-other').show('fast');
-    $('nav').show('fast');
+
+    if (windowsize < 576) {
+      $('.menu-button').show();
+    } else {
+      $('.desktop-nav').show('fast');
+    }
   });
 
   $('.sign-up form').submit(function() {
@@ -162,6 +177,16 @@ $(document).ready(function(){
     );
     $('header .mobile-menu').removeClass('show');
     $('.modal-backdrop').remove();
+  });
+
+  $('.mobile-header a').click(function() {
+    $('.container-custom').show('fast');
+    $('.container-other').hide();
+    $('#carousel').show('fast');
+    $('header #desktop-cross').hide();
+    $('.sign-up').hide();
+    $('nav .button').hide('fast');
+    $('.link-about').show('fast');
   });
 
 });

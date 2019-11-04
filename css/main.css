@@ -108,6 +108,10 @@
     color: #0d1126;
   }
 
+  header a:hover {
+    cursor: pointer;
+  }
+
   nav {
     display: flex;
     align-items: center;
@@ -156,15 +160,21 @@
   background-color: rgba(255, 219, 201, 0.19);
   text-align: center;
   line-height: 1;
-  display: inline-block;
   margin-left: 32px;
-  display: none;
   }
 
   .cross:hover {
     color: rgba(255, 219, 201, 1);
     background-color: #fa6102;
     cursor: pointer;
+  }
+
+  #mobile-cross {
+    display: none;
+  }
+
+  #desktop-cross {
+    display: none;
   }
 
   /* Slider screens */
@@ -369,6 +379,10 @@
   font-size: 1.286rem;
   color: #3c3c3c;
   align-self: flex-end;
+}
+
+.subheader #desktop-cross {
+  display: block;
 }
 
 .sign-up .container-inner_text h1 {
@@ -672,6 +686,10 @@
   text-align: left;
   color: #1d1d1d;
   margin-bottom: 40px;
+}
+
+.page_text p:last-child {
+  margin-bottom: 0;
 }
 
 .pic img {
