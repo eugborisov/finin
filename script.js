@@ -12,7 +12,7 @@ if ($('#carousel').is(':visible')) {
          $(this).carousel('next');
        }
      $(this).addClass('disabled');
-     setTimeout(function() {$("#carousel").removeClass('disabled')}, 1000);
+     setTimeout(function() {$("#carousel").removeClass('disabled')}, 1500);
      } else {
        console.log('disabled scroll');
      }
