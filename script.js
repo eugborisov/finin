@@ -5,14 +5,14 @@ if ($('#carousel').is(':visible')) {
    $('#carousel').mousewheel(function(event) {
 
      if (!$(this).hasClass('disabled')) {
-       if(event.deltaY > 0) {
+       if (event.deltaY == 1) {
          $(this).carousel('prev');
-       } else {
+         console.log(event.deltaY);
+       } else if (event.deltaY == -1) {
          $(this).carousel('next');
        }
-       console.log('enabled scroll');
-       $(this).addClass('disabled');
-       setTimeout(function() {$("#carousel").removeClass('disabled')}, 1000);
+     $(this).addClass('disabled');
+     setTimeout(function() {$("#carousel").removeClass('disabled')}, 1000);
      } else {
        console.log('disabled scroll');
      }
