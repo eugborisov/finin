@@ -19,13 +19,11 @@ if ($('#carousel').is(':visible')) {
 
    }); */
 
-   setInterval(carouselFunction, 2000);
-
-
-
    $('#arrow-down').click(function() {
      $('#carousel').carousel('next');
    });
+
+   setInterval(carouselFunction, 2000);
 
    function carouselFunction() {
      $('#carousel').one('mousewheel', function(event) {
