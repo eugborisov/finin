@@ -2,12 +2,11 @@ if ($('#carousel').is(':visible')) {
 
   $('#carousel').carousel('pause');
 
-   $('#carousel').mousewheel(function(event) {
+  /* $('#carousel').mousewheel(function(event) {
 
      if (!$(this).hasClass('disabled')) {
        if (event.deltaY == 1) {
          $(this).carousel('prev');
-         console.log(event.deltaY);
        } else if (event.deltaY == -1) {
          $(this).carousel('next');
        }
@@ -18,11 +17,28 @@ if ($('#carousel').is(':visible')) {
      }
      $('#carousel').carousel('pause');
 
-   });
+   }); */
+
+   setInterval(carouselFunction, 2000);
+
+
 
    $('#arrow-down').click(function() {
      $('#carousel').carousel('next');
    });
+
+   function carouselFunction() {
+     $('#carousel').one('mousewheel', function(event) {
+
+          if (event.deltaY == 1) {
+            $(this).carousel('prev');
+          } else if (event.deltaY == -1) {
+            $(this).carousel('next');
+          }
+
+        $('#carousel').carousel('pause');
+      })
+   }
  }
 
 $(document).ready(function(){
