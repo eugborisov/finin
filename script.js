@@ -2,23 +2,6 @@ if ($('#carousel').is(':visible')) {
 
   $('#carousel').carousel('pause');
 
-  /* $('#carousel').mousewheel(function(event) {
-
-     if (!$(this).hasClass('disabled')) {
-       if (event.deltaY == 1) {
-         $(this).carousel('prev');
-       } else if (event.deltaY == -1) {
-         $(this).carousel('next');
-       }
-     $(this).addClass('disabled');
-     setTimeout(function() {$("#carousel").removeClass('disabled')}, 2000);
-     } else {
-       console.log('disabled scroll');
-     }
-     $('#carousel').carousel('pause');
-
-   }); */
-
    $('#arrow-down').click(function() {
      $('#carousel').carousel('next');
    });
