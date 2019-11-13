@@ -6,7 +6,7 @@ if ($('#carousel').is(':visible')) {
      $('#carousel').carousel('next');
    });
 
-   setInterval(carouselFunction, 2000);
+   setInterval(carouselFunction, 500);
 
    function carouselFunction() {
      $('#carousel').one('mousewheel', function(event) {
@@ -16,6 +16,8 @@ if ($('#carousel').is(':visible')) {
           } else if (event.deltaY == -1) {
             $(this).carousel('next');
           }
+
+          console.log(event.deltaY);
 
         $('#carousel').carousel('pause');
       })
